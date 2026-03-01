@@ -111,7 +111,9 @@ useEffect(() => {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm mb-8"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span className="font-mono">현재 프로젝트 2개 진행 중</span>
+              <span className="font-mono">
+                현재 프로젝트 {projects.filter((p) => p.status === "진행중").length}개 진행 중
+              </span>
             </div>
 
             {/* Name & Greeting */}

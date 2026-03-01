@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <!-- 배경 -->
+    <rect width="32" height="32" rx="8" fill="#6366f1"/>
+    <!-- 터미널 아이콘 (루시드 Terminal, 중앙 배치) -->
+    <g transform="translate(4, 4) scale(1.0)" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <polyline points="4 17 10 11 4 5"/>
+        <line x1="12" x2="20" y1="19" y2="19"/>
+    </g>
+</svg>
