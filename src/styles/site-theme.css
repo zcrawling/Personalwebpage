@@ -1,0 +1,51 @@
+/* ===== Dark Theme (default) ===== */
+:root {
+  --site-bg: #0d1117;
+  --site-bg-card: #161b22;
+  --site-bg-hover: #1c2330;
+  --site-bg-subtle: #21262d;
+  --site-border: #30363d;
+  --site-border-soft: #21262d;
+  --site-text: #e6edf3;
+  --site-text-muted: #8b949e;
+  --site-text-faint: #6e7681;
+  --site-navbar-bg: rgba(13, 17, 23, 0.95);
+  --site-accent: #7c3aed;
+  --site-accent-text: #a78bfa;
+  --site-accent-bg: rgba(124, 58, 237, 0.1);
+  --site-accent-border: rgba(124, 58, 237, 0.25);
+  --site-accent-btn: #7c3aed;
+  --site-accent-btn-hover: #6d28d9;
+  --site-gradient-from: #a78bfa;
+  --site-gradient-to: #818cf8;
+  --site-glow-1: rgba(124, 58, 237, 0.2);
+  --site-glow-2: rgba(79, 70, 229, 0.15);
+  --site-grid-line: rgba(230, 237, 243, 0.03);
+  --site-scroll-bar: #30363d;
+}
+
+/* ===== Light Theme ===== */
+.theme-light {
+  --site-bg: #f6f8fa;
+  --site-bg-card: #ffffff;
+  --site-bg-hover: #eef2ff;
+  --site-bg-subtle: #eff6ff;
+  --site-border: #d0d7de;
+  --site-border-soft: #e6ecf0;
+  --site-text: #1e293b;
+  --site-text-muted: #4b5563;
+  --site-text-faint: #94a3b8;
+  --site-navbar-bg: rgba(246, 248, 250, 0.95);
+  --site-accent: #2563eb;
+  --site-accent-text: #2563eb;
+  --site-accent-bg: rgba(37, 99, 235, 0.08);
+  --site-accent-border: rgba(37, 99, 235, 0.25);
+  --site-accent-btn: #2563eb;
+  --site-accent-btn-hover: #1d4ed8;
+  --site-gradient-from: #2563eb;
+  --site-gradient-to: #4f46e5;
+  --site-glow-1: rgba(37, 99, 235, 0.15);
+  --site-glow-2: rgba(79, 70, 229, 0.1);
+  --site-grid-line: rgba(30, 41, 59, 0.04);
+  --site-scroll-bar: #d0d7de;
+}
