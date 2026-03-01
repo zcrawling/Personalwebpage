@@ -19,4 +19,8 @@ export default defineConfig({
 
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
+   build: {
+    outDir: '../src/main/resources/static',  // ← 이 블록만 추가
+    emptyOutDir: true,
+  }
 })
