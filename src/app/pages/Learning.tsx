@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   BookOpen,
@@ -12,7 +12,10 @@ import {
   CheckCircle2,
   Circle,
 } from "lucide-react";
-import { learningEntries, LearningEntry } from "../data/mockData";
+import { useEffect, useState } from "react";
+import { fetchLearning } from "../data/api";
+import type { LearningEntry } from "../data/mockData";
+
 import { useTheme } from "../context/ThemeContext";
 
 export function Learning() {
@@ -21,7 +24,11 @@ export function Learning() {
   const [selected, setSelected] = useState<LearningEntry | null>(null);
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const [learningEntries, setLearningEntries] = useState<LearningEntry[]>([]);
 
+  useEffect(() => {
+    fetchLearning().then(setLearningEntries);
+  }, []);
   const allTopics = Array.from(new Set(learningEntries.map((e) => e.topic)));
 
   const filtered = learningEntries.filter((entry) => {

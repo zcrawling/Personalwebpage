@@ -14,16 +14,29 @@ import {
   GitBranch,
   Zap,
 } from "lucide-react";
-import { projects, devLogs, learningEntries } from "../data/mockData";
+import { fetchProjects, fetchDevLogs, fetchLearning } from "../data/api";
+import type { Project } from "../data/mockData";
+import type { DevLogEntry } from "../data/mockData";
+import type { LearningEntry } from "../data/mockData";
 import { useTheme } from "../context/ThemeContext";
 
-const TYPING_TEXT = "개발하고, 기록하고, 성장합니다.";
+const TYPING_TEXT = "배우고, 개발하고, 성장합니다.";
 
 export function Home() {
   const [typed, setTyped] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const { theme } = useTheme();
   const isLight = theme === "light";
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [devLogs, setDevLogs] = useState<DevLogEntry[]>([]);
+  const [learningEntries, setLearningEntries] = useState<LearningEntry[]>([]);
+
+useEffect(() => {
+  fetchProjects().then(setProjects);
+  fetchDevLogs().then(setDevLogs);
+  fetchLearning().then(setLearningEntries);
+}, []);
+
 
   useEffect(() => {
     let i = 0;
@@ -110,7 +123,7 @@ export function Home() {
                 fontFamily: "'Pretendard Variable', sans-serif",
               }}
             >
-              안녕하세요,<br />
+              안녕하세요<br />
               <span
                 style={{
                   background: `linear-gradient(135deg, var(--site-gradient-from), var(--site-gradient-to))`,
@@ -119,7 +132,7 @@ export function Home() {
                   backgroundClip: "text",
                 }}
               >
-                개발자 OOO
+                개발자 이성빈
               </span>
               입니다.
             </h1>
@@ -143,9 +156,9 @@ export function Home() {
               className="text-lg leading-relaxed mb-10 max-w-xl"
               style={{ color: "var(--site-text-muted)" }}
             >
-              프론트엔드 개발을 공부하며, 배운 것을 기록합니다.
-              아이디어를 코드로 구현하는 과정을 즐기고,
-              더 나은 코드를 향해 꾸준히 성장하고 있습니다.
+                주로 C++, Python을 사용하여 컴퓨터비젼, 센서제어, 임베디드 통신을 
+                공부하고 있습니다. 주제와 난이도를 가리지않고 더 나은 개발자가 되기 위해
+                꾸준히 성장하고 있습니다.
             </p>
 
             {/* CTA Buttons */}

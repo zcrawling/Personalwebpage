@@ -1,7 +1,9 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Terminal, Pin, Calendar, Clock, Tag, Search, ChevronLeft, X } from "lucide-react";
-import { devLogs, DevLogEntry } from "../data/mockData";
+import { useEffect, useState } from "react";
+import { fetchDevLogs } from "../data/api";
+import type { DevLogEntry } from "../data/mockData";
 import { useTheme } from "../context/ThemeContext";
 
 export function DevLog() {
@@ -10,6 +12,12 @@ export function DevLog() {
   const [selected, setSelected] = useState<DevLogEntry | null>(null);
   const { theme } = useTheme();
   const isLight = theme === "light";
+  
+  const [devLogs, setDevLogs] = useState<DevLogEntry[]>([]);
+
+  useEffect(() => {
+    fetchDevLogs().then(setDevLogs);
+  }, []);
 
   const allTags = Array.from(new Set(devLogs.flatMap((l) => l.tags)));
 

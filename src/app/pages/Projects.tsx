@@ -1,7 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Github, ExternalLink, Pin, Filter, Layers } from "lucide-react";
-import { projects, Project } from "../data/mockData";
+
+import { useEffect, useState } from "react";
+import { fetchProjects } from "../data/api";
+import type { Project } from "../data/mockData";
 import { useTheme } from "../context/ThemeContext";
 
 const filterOptions = ["전체", "진행중", "완료", "계획중"];
@@ -11,6 +14,12 @@ export function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
   const { theme } = useTheme();
   const isLight = theme === "light";
+  
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    fetchProjects().then(setProjects);
+  }, []);
 
   const getStatusStyle = (status: string) => {
     const map: Record<string, { color: string; bg: string; border: string }> = {

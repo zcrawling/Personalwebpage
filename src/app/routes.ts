@@ -6,6 +6,7 @@ import { Projects } from "./pages/Projects";
 import { DevLog } from "./pages/DevLog";
 import { Learning } from "./pages/Learning";
 import { NotFound } from "./pages/NotFound";
+import { Admin } from "./pages/Admin";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: "devlog", Component: DevLog },
       { path: "learning", Component: Learning },
       { path: "*", Component: NotFound },
+      { path: "admin", Component: Admin },
     ],
   },
 ]);
